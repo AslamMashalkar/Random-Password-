@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Random Pass</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+    <div class="log">
+      <h1>LOGIN</h1>
+    </div>
+      <h1>
+        Generate a <br /><span>
+        Random Password</span>
+      </h1>
+      <div class="display">
+        <input type="text" placeholder="Enter UserName" name="uname" required />
+        <br />
+      </div>
+      <div class="display">
+        <input  type="text" placeholder="Random Password" id="password" name="upass" required/>
+        
+      </div>
+
+      <button onclick="createPassword()"> <img src="/generate.png"> GENERATE PASSWORD</button>
+    </div>
+
+
+    <script>
+      const passWord = document.getElementById("password");
+      const length = 12;
+      const charset =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+";
+      const allChars = charset;
+
+      function createPassword() {
+        let password = "";
+        password += charset[Math.floor(Math.random() * password.length)];
+
+        while (length > password.length) {
+          password += allChars[Math.floor(Math.random() * allChars.length)];
+        }
+        passWord.value = password;
+      }
+    </script>
+  </body>
+</html>
